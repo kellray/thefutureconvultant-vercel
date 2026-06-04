@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Problem from "@/components/Problem";
@@ -10,6 +9,7 @@ import WhyUs from "@/components/WhyUs";
 import Testimonials from "@/components/Testimonials";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
+import CookieBanner from "@/components/CookieBanner";
 
 export default function Home() {
   return (
@@ -25,6 +25,7 @@ export default function Home() {
       <Testimonials />
       <FinalCTA />
       <Footer />
+      <CookieBanner />
     </main>
   );
 }
