@@ -1,114 +1,102 @@
-const services = [
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <rect x="3" y="3" width="18" height="18" rx="2" />
-        <path d="M3 9h18M9 21V9" />
-      </svg>
-    ),
-    title: "Lead-Generating Websites",
-    desc: "Modern websites designed to convert visitors into customers. Fast, mobile-first, built to rank and capture leads.",
-    tags: ["Design", "Development", "SEO"],
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-      </svg>
-    ),
-    title: "CRM & Customer Management",
-    desc: "Centralize every customer, every contact, every conversation. Never lose a lead or drop the ball on follow-up again.",
-    tags: ["CRM Setup", "Pipelines", "Follow-Up"],
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-      </svg>
-    ),
-    title: "Automation & Workflows",
-    desc: "Eliminate repetitive tasks. Automate estimates, reminders, invoicing, appointment confirmations, and more.",
-    tags: ["Workflow", "Email", "Scheduling"],
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-      </svg>
-    ),
-    title: "Business Growth Consulting",
-    desc: "Practical strategy and implementation focused on revenue growth. Not theory—real decisions, real execution.",
-    tags: ["Strategy", "Implementation", "Growth"],
-  },
-];
-
+/* How We Work — Process section (replaces old Services card grid) */
 export default function Services() {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-5">
+    <section className="bg-white border-t border-[#E5E7EB]">
+      <div className="max-w-6xl mx-auto px-5 py-16">
+
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
-          <div>
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-6 h-[2px]" style={{ backgroundColor: "#2563FF" }} />
-              <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "#2563FF" }}>
-                What We Do
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111827] leading-tight tracking-tight">
-              Four Ways We Modernize<br />Your Business
+        <div className="mb-12">
+          <p className="text-[10px] font-bold tracking-[0.25em] uppercase mb-4" style={{ color: "#2563FF" }}>
+            How We Work
+          </p>
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2">
+            <h2
+              className="font-extrabold tracking-tight text-[#111827] leading-tight"
+              style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
+            >
+              Simple process.<br />Stronger next steps.
             </h2>
+            <p className="text-sm text-[#6B7280] max-w-xs leading-relaxed">
+              We don&apos;t disappear after a kickoff call. We stay involved until the work moves.
+            </p>
           </div>
-          <a
-            href="#audit"
-            style={{ color: "#2563FF" }}
-            className="text-sm font-semibold hover:underline whitespace-nowrap self-start sm:self-auto"
-          >
-            Get started →
-          </a>
         </div>
 
-        {/* Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {services.map((svc, i) => (
+        {/* Steps */}
+        <div className="grid md:grid-cols-3 gap-0">
+          {[
+            {
+              n: "1",
+              label: "Assess",
+              desc: "We audit your website, CRM, lead flow, and operations to find exactly what's broken and what to fix first.",
+              detail: "Practical frameworks · Not theory",
+            },
+            {
+              n: "2",
+              label: "Build",
+              desc: "We implement the systems — websites, CRM, automation — tailored to your workflow, not a generic template.",
+              detail: "Strategy + execution · One team",
+            },
+            {
+              n: "3",
+              label: "Grow",
+              desc: "With modern systems in place, you close more leads and operate with less manual effort every week.",
+              detail: "Measurable outcomes · Ongoing support",
+            },
+          ].map((step, i) => (
             <div
-              key={svc.title}
-              className="group flex flex-col border border-[#E5E7EB] rounded-lg p-6 hover:border-[#2563FF] hover:shadow-lg transition-all duration-200"
-              style={{ transitionProperty: "border-color, box-shadow" }}
+              key={step.n}
+              className="relative flex flex-col border border-[#E5E7EB] p-8 -ml-px first:ml-0 hover:bg-[#F9FAFB] transition-colors duration-200"
             >
               {/* Number */}
-              <div className="text-[10px] font-bold tracking-widest text-[#6B7280] mb-4">
-                0{i + 1}
-              </div>
-
-              {/* Icon */}
               <div
-                className="w-10 h-10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-200"
-                style={{ backgroundColor: "rgba(37,99,255,0.08)", color: "#2563FF" }}
+                className="text-5xl font-extrabold leading-none mb-6 tracking-tighter"
+                style={{ color: "rgba(37,99,255,0.12)", fontFamily: "var(--font-mono)" }}
               >
-                {svc.icon}
+                {step.n}
               </div>
 
-              {/* Content */}
-              <h3 className="text-sm font-bold text-[#111827] mb-2 leading-snug">{svc.title}</h3>
-              <p className="text-xs text-[#6B7280] leading-relaxed flex-1">{svc.desc}</p>
+              {/* Arrow connector (not on last) */}
+              {i < 2 && (
+                <div
+                  className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-6 h-6 items-center justify-center rounded-full z-10 border border-[#E5E7EB]"
+                  style={{ backgroundColor: "white" }}
+                >
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#2563FF" strokeWidth="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              )}
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-1.5 mt-4">
-                {svc.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
-                    style={{ backgroundColor: "rgba(37,99,255,0.08)", color: "#2563FF" }}
-                  >
-                    {tag}
-                  </span>
-                ))}
+              <div className="text-base font-extrabold text-[#111827] mb-3 tracking-tight">{step.label}</div>
+              <p className="text-xs text-[#6B7280] leading-relaxed flex-1">{step.desc}</p>
+              <div className="mt-5 pt-4 border-t border-[#E5E7EB]">
+                <span className="text-[9px] font-bold tracking-widest uppercase text-[#9CA3AF]">{step.detail}</span>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Credentials bar */}
+        <div className="mt-12 pt-10 border-t border-[#E5E7EB]">
+          <p className="text-[10px] font-bold tracking-[0.25em] uppercase mb-6 text-[#9CA3AF]">
+            Built on Practical Implementation
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { num: "10+", label: "Years in Business" },
+              { num: "150+", label: "Businesses Helped" },
+              { num: "3×", label: "Avg. Lead Increase" },
+              { num: "8–10 hrs", label: "Saved Per Client / Week" },
+            ].map((s) => (
+              <div key={s.label} className="border-b border-[#E5E7EB] pb-4">
+                <div className="text-2xl font-extrabold text-[#111827] tracking-tight leading-none mb-1">
+                  {s.num}
+                </div>
+                <div className="text-[10px] text-[#9CA3AF] font-medium leading-snug">{s.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

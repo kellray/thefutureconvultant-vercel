@@ -1,74 +1,81 @@
 const testimonials = [
   {
+    category: "CRM & Automation",
     quote:
       "Before working with The Future Consultant, I was losing leads every week because I had no follow-up system. Now my CRM handles it automatically. I booked 4 new jobs in the first month without doing anything differently.",
     name: "Marcus T.",
     role: "Owner, MT Electrical Services",
-    initials: "MT",
   },
   {
+    category: "Website & Lead Generation",
     quote:
-      "Our old website was embarrassing—built in 2014, not mobile-friendly, no contact form that worked. They built us a new site in two weeks and we started getting online leads for the first time ever.",
+      "Our old website was built in 2014—not mobile-friendly, no working contact form. They built us a new site in two weeks and we started getting online leads for the first time ever.",
     name: "Diane K.",
     role: "Owner, Keystone Kitchen Remodeling",
-    initials: "DK",
   },
   {
+    category: "Workflow Automation",
     quote:
-      "I thought automation was only for big companies. They showed me how to automate my estimates, my appointment reminders, and my review requests. I'm saving 8–10 hours a week and my reviews have doubled.",
+      "I thought automation was only for big companies. They showed me how to automate my estimates, my appointment reminders, and my review requests. I'm saving 8–10 hours a week.",
     name: "James R.",
     role: "Owner, Reliable Pest & Lawn",
-    initials: "JR",
+  },
+  {
+    category: "Business Growth Consulting",
+    quote:
+      "What I appreciated most was that they stayed involved enough to help the work move without adding unnecessary complexity. It felt like having an in-house team without the overhead.",
+    name: "Tyrone H.",
+    role: "CMO, Atlanta, GA",
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section className="py-20 bg-[#F9FAFB]">
-      <div className="max-w-6xl mx-auto px-5">
+    <section className="bg-white border-t border-[#E5E7EB]">
+      <div className="max-w-6xl mx-auto px-5 py-16">
+
         {/* Header */}
-        <div className="mb-10">
-          <div className="flex items-center gap-2.5 mb-4">
-            <div className="w-6 h-[2px]" style={{ backgroundColor: "#2563FF" }} />
-            <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "#2563FF" }}>
-              Results
-            </span>
+        <div className="pb-10 border-b border-[#E5E7EB] mb-10">
+          <p className="text-[10px] font-bold tracking-[0.25em] uppercase mb-4" style={{ color: "#2563FF" }}>
+            Client Feedback
+          </p>
+          <div className="grid lg:grid-cols-2 gap-4 items-end">
+            <h2
+              className="font-extrabold tracking-tight text-[#111827] leading-[1.05]"
+              style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
+            >
+              What Clients Appreciate
+            </h2>
+            <p className="text-sm text-[#6B7280] leading-relaxed">
+              A few examples of how The Future Consultant helps small businesses operate smarter and keep important projects moving.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111827] leading-tight tracking-tight">
-            Small Businesses.<br />Real Outcomes.
-          </h2>
         </div>
 
-        {/* Cards */}
-        <div className="grid sm:grid-cols-3 gap-5">
-          {testimonials.map((t) => (
-            <div key={t.name} className="bg-white border border-[#E5E7EB] rounded-lg p-6 flex flex-col">
-              {/* Stars */}
-              <div className="flex gap-0.5 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill="#2563FF">
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                  </svg>
-                ))}
+        {/* 2-col grid */}
+        <div className="grid md:grid-cols-2 gap-0 divide-y md:divide-y-0">
+          {testimonials.map((t, i) => (
+            <div
+              key={t.name}
+              className="p-8 border-[#E5E7EB] first:pl-0 last:pr-0"
+              style={{
+                borderLeft: i % 2 === 1 ? "1px solid #E5E7EB" : undefined,
+                borderBottom: i < 2 ? "1px solid #E5E7EB" : undefined,
+                paddingTop: i >= 2 ? "2rem" : "0",
+              }}
+            >
+              <div
+                className="text-[9px] font-bold tracking-[0.2em] uppercase mb-5 pb-3 border-b border-[#E5E7EB]"
+                style={{ color: "#2563FF" }}
+              >
+                {t.category}
               </div>
-
-              {/* Quote */}
-              <p className="text-sm text-[#374151] leading-relaxed flex-1 mb-5">
+              <p className="text-sm text-[#374151] leading-relaxed italic mb-6">
                 &ldquo;{t.quote}&rdquo;
               </p>
-
-              {/* Author */}
-              <div className="flex items-center gap-3 pt-4 border-t border-[#E5E7EB]">
-                <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0"
-                  style={{ backgroundColor: "#071A3D" }}
-                >
-                  {t.initials}
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-[#111827]">{t.name}</div>
-                  <div className="text-xs text-[#6B7280]">{t.role}</div>
-                </div>
+              <div>
+                <div className="text-xs font-bold text-[#111827]">{t.name}</div>
+                <div className="text-[10px] text-[#9CA3AF] mt-0.5">{t.role}</div>
               </div>
             </div>
           ))}
