@@ -32,6 +32,7 @@ export default function Nav() {
             width={36}
             height={36}
             className="h-9 w-auto"
+            style={{ filter: "brightness(0) invert(1)" }}
           />
           <div className="flex flex-col leading-none">
             <span
